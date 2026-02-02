@@ -372,6 +372,21 @@
             height: 100%;
             display: flex;
             flex-direction: column;
+            position: relative;
+        }
+
+        .coming-soon-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent-hot);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(239, 68, 68, 0.4);
         }
 
         .service-card:hover {
@@ -924,12 +939,14 @@
 
                 <!-- Card 4 -->
                 <div class="service-card reveal">
+                    <div class="coming-soon-badge">Coming Soon</div>
                     <div class="service-icon-box">
-                        <img src="images/banners.png" alt="Banners & Flex">
+                        <img src="images/banners.png" alt="Banners & Flex"
+                            style="filter: grayscale(100%); opacity: 0.7;">
                     </div>
                     <div class="service-content">
                         <h3>Banners & Flex</h3>
-                        <p>Large format indoor and outdoor banners for maximum visibility.</p>
+                        <p>Large format indoor and outdoor banners. (Service launching soon)</p>
                     </div>
                 </div>
 
@@ -946,12 +963,14 @@
 
                 <!-- Card 6 -->
                 <div class="service-card reveal">
+                    <div class="coming-soon-badge">Coming Soon</div>
                     <div class="service-icon-box">
-                        <img src="images/fabric-print.png" alt="Custom Prints">
+                        <img src="images/fabric-print.png" alt="Custom Prints"
+                            style="filter: grayscale(100%); opacity: 0.7;">
                     </div>
                     <div class="service-content">
                         <h3>Custom Prints</h3>
-                        <p>ID cards, lanyards, and custom corporate gifting prints.</p>
+                        <p>ID cards, lanyards, and custom corporate gifting prints. (Service launching soon)</p>
                     </div>
                 </div>
             </div>
