@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sam's Print Studio | A5 Portrait Pages</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --navy: #0f172a;
+            --blue: #0ea5e9;
+            --blue-gradient: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+            --slate: #475569;
+            --white: #ffffff;
+            --bg-page: #f8fafc;
+            --border: #e2e8f0;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            background-color: #e2e8f0;
+            padding: 40px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Single A5 Panel (Portrait) */
+        .a5-page {
+            width: 148.5mm;
+            height: 210mm;
+            background: var(--white);
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3 {
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1.1;
+        }
+
+        .serif-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--blue);
+        }
+
+        p {
+            color: var(--slate);
+            font-size: 0.8rem;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        .gradient-text {
+            background: var(--blue-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- PAGE 1: FRONT COVER --- */
+        .front-cover {
+            background: radial-gradient(circle at center, #ffffff 0%, #f1f5f9 100%);
+            text-align: center;
+        }
+
+        .cover-visual-top {
+            width: 100%;
+            height: 45%;
+            position: relative;
+            background: var(--navy);
+        }
+
+        .cover-visual-top img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .center-logo-wrap {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            width: 180px;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-radius: 50%;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            border: 3px solid rgba(255, 255, 255, 0.9);
+        }
+
+        .center-logo-wrap img {
+            width: 75%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .logo-tagline {
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--navy);
+            margin-top: 2px;
+        }
+
+        .front-text-area {
+            height: 55%;
+            padding: 50px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .front-headline h1 {
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .front-headline .divider {
+            width: 60px;
+            height: 3px;
+            background: var(--blue);
+            margin: 0 auto 12px;
+            border-radius: 10px;
+        }
+
+        .front-headline p {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- PAGE 2: INSIDE LEFT (USP) --- */
+        .inside-left-content {
+            padding: 15mm;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .inside-left-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
+
+        .hero-img-box {
+            flex: 1;
+            min-height: 0;
+            background: var(--bg-page);
+            border-radius: 12px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .hero-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .usp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: auto;
+        }
+
+        .usp-card {
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border-bottom: 3px solid var(--blue);
+        }
+
+        .usp-card i {
+            font-size: 1.5rem;
+            color: var(--blue);
+            margin-bottom: 8px;
+        }
+
+        .usp-card h4 {
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+        }
+
+        .usp-card p {
+            font-size: 0.65rem;
+        }
+
+        /* --- PAGE 3: INSIDE RIGHT (SERVICES) --- */
+        .inside-right {
+            padding: 10mm 12mm;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .inside-right h2 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .service-row-colorful {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 6px;
+            padding: 7px 10px;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            align-items: center;
+        }
+
+        .service-icon-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .mini-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .mini-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-text-box h3 {
+            font-size: 0.8rem;
+            margin-bottom: 2px;
+            color: var(--blue);
+        }
+
+        .service-text-box p {
+            font-size: 0.58rem;
+            line-height: 1.35;
+        }
+
+        .cta-banner {
+            margin-top: auto;
+            background: var(--blue-gradient);
+            padding: 10px 15px;
+            border-radius: 10px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cta-banner h3 {
+            font-size: 0.75rem;
+            color: white;
+            margin-bottom: 2px;
+        }
+
+        .cta-banner h2 {
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .back-cover {
+            background: var(--white);
+            color: var(--navy);
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
+            padding: 0;
+            position: relative;
+        }
+
+        .back-cover::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(var(--blue) 1px, transparent 1px);
+            background-size: 25px 25px;
+            opacity: 0.08;
+            z-index: 0;
+        }
+
+        .back-cover-top-shape {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .back-cover-top-shape img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .back-cover-top-shape::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.6) 0%, rgba(14, 165, 233, 0.3) 100%);
+            z-index: 2;
+        }
+
+        .back-content-area {
+            margin-top: 40%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 100%;
+            padding: 10px 12mm 8px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .qr-box {
+            background: white;
+            padding: 8px;
+            border-radius: 10px;
+            margin: 8px auto;
+            width: 90px;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+        }
+
+        .qr-box img {
+            width: 100%;
+            display: block;
+        }
+
+        .contact-grid {
+            width: 100%;
+            max-width: 280px;
+            margin: 5px auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 5px;
+            padding: 7px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--white);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            border-color: var(--blue);
+            transform: translateY(-2px);
+        }
+
+        .contact-item i {
+            color: var(--blue);
+            width: 18px;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        .contact-item span {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--navy);
+            text-align: left;
+        }
+
+        .social-link-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-top: 8px;
+            width: 100%;
+            max-width: 280px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .social-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 7px 12px;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .social-item i {
+            font-size: 1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .social-item span {
+            font-weight: 600;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+                gap: 0;
+            }
+
+            .a5-page {
+                margin: 0;
+                box-shadow: none;
+                border: none;
+                page-break-after: always;
+            }
+
+            @page {
+                size: A5 portrait;
+                margin: 0;
+            }
+
+            .gradient-text {
+                background: none !important;
+                -webkit-background-clip: unset !important;
+                -webkit-text-fill-color: var(--blue) !important;
+                color: var(--blue) !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PAGE 1: FRONT COVER -->
+    <div class="a5-page front-cover">
+        <div class="cover-visual-top">
+            <img src="images/hero-printing-studio.png" alt="Production Printing">
+        </div>
+        <div class="center-logo-wrap">
+            <img src="logo.png" alt="Sam's Print Studio" style="width: 200px; margin-bottom: 5px;">
+        </div>
+        <div class="front-text-area">
+            <div class="front-headline">
+                <h1>The Art of <br><span class="gradient-text serif-text"
+                        style="-webkit-text-fill-color: initial;">Production</span> Printing</h1>
+                <div class="divider"></div>
+                <p>Excellence. Scalability. Reliability.</p>
+            </div>
+            <div style="margin-top: 25px; display: flex; gap: 25px;">
+                <div style="text-align: center;"><i class="fa-solid fa-bolt"
+                        style="color: var(--blue); font-size: 1.2rem; margin-bottom: 5px;"></i><br><small>FAST</small>
+                </div>
+                <div style="text-align: center;"><i class="fa-solid fa-award"
+                        style="color: var(--blue); font-size: 1.2rem; margin-bottom: 5px;"></i><br><small>QUALITY</small>
+                </div>
+                <div style="text-align: center;"><i class="fa-solid fa-shield"
+                        style="color: var(--blue); font-size: 1.2rem; margin-bottom: 5px;"></i><br><small>RELIABLE</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: INSIDE LEFT (USP) -->
+    <div class="a5-page">
+        <div class="inside-left-content">
+            <h2>Luxury <span class="gradient-text">Meets</span> Tech.</h2>
+            <p>Establishing authority through high-fidelity color, massive scalability, and industrial-grade production
+                capacity.</p>
+
+            <div class="hero-img-box">
+                <img src="images/internet and digital services.png" alt="Commercial Printing Collateral">
+            </div>
+
+            <div class="usp-grid">
+                <div class="usp-card">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <h4>Scalability</h4>
+                    <p>Consistent quality from prototyping to massive 100k unit runs.</p>
+                </div>
+                <div class="usp-card">
+                    <i class="fa-solid fa-print"></i>
+                    <h4>High GSM</h4>
+                    <p>Support for up to 300 GSM media with specialty textures.</p>
+                </div>
+                <div class="usp-card">
+                    <i class="fa-solid fa-bolt"></i>
+                    <h4>Agile Speed</h4>
+                    <p>Rapid machine turnaround ensuring same-day delivery.</p>
+                </div>
+                <div class="usp-card">
+                    <i class="fa-solid fa-microchip"></i>
+                    <h4>A3 Precision</h4>
+                    <p>Specialized in large format A3 architectural prints.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 3: INSIDE RIGHT (SERVICES) -->
+    <div class="a5-page">
+        <div class="inside-right">
+            <h2>Our <span class="gradient-text">Service</span> Architecture</h2>
+
+            <div class="services-list-colorful">
+                <div class="service-row-colorful">
+                    <div class="mini-img"><img src="images/visiting-cards.png" alt="Commercial & Corporate Services">
+                    </div>
+                    <div class="service-text-box">
+                        <h3>Commercial & Corporate Services</h3>
+                        <p>Luxury Visiting Cards, Envelopes, Flyers & Pamphlets , Brochures (bi-fold, tri-fold), Posters
+                            (A3, A4), Product catalogs, Company profiles , Bill books, Invoices and Letterheads for your
+                            brand.</p>
+                    </div>
+                </div>
+
+                <div class="service-row-colorful">
+                    <div class="mini-img"><img src="images/document-print.png" alt="Booklet & Document Printing"></div>
+                    <div class="service-text-box">
+                        <h3>Booklet & Document Printing</h3>
+                        <p>A3 Architectural drawings, bound reports, Training manuals, School/college projects,
+                            Corporate reports, Booklets (spiral/staple binding), Exam papers and training manuals.</p>
+                    </div>
+                </div>
+
+                <div class="service-row-colorful">
+                    <div class="mini-img"><img src="images/stickers.png" alt="Creative & Marketing Prints"></div>
+                    <div class="service-text-box">
+                        <h3>Creative & Marketing Prints</h3>
+                        <p>Birthday invitations, Festival creatives (Ugadi, Diwali, etc.), Event posters.</p>
+                    </div>
+                </div>
+
+                <div class="service-row-colorful">
+                    <div class="mini-img"><img src="images/banners.png" alt="Large Format Printing"></div>
+                    <div class="service-text-box">
+                        <h3>Creative Artistry</h3>
+                        <p>Birthday invitations, event posters, and custom festival creatives.</p>
+                    </div>
+                </div>
+
+                <div class="service-row-colorful">
+                    <div class="mini-img"><img src="images/photo-print.png" alt="Photo Printing"></div>
+                    <div class="service-text-box">
+                        <h3>Photo Printing &amp; Gifts</h3>
+                        <p>Fridge magnets, Photo frames, Keychains, Mugs, Canvas prints, T-shirt printing &amp; more.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="service-row-colorful">
+                    <div class="mini-img"><img src="images/specialized-printing.jpg" alt="Specialized Printing"></div>
+                    <div class="service-text-box">
+                        <h3>Specialized Printing <small style="color: #f59e0b; font-weight: 700;">(Premium)</small></h3>
+                        <p>Restaurant menus, Real estate brochures, Presentation folders &amp; A3 architectural
+                            drawings.</p>
+                    </div>
+                </div>
+
+                <div class="service-row-colorful">
+                    <div class="mini-img"><img src="images/internet and digital services.png"
+                            alt="Internet & Digital Services"></div>
+                    <div class="service-text-box">
+                        <h3>Internet &amp; Digital Services</h3>
+                        <p>Logo Designing, Website Creation, Digital Marketing, Social Media &amp; more.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-banner">
+                <div>
+                    <h3>REDEFINE YOUR PRINT TODAY</h3>
+                    <p style="font-size: 0.55rem; color: white;">Builders & Institutions: Monthly B2B contracts
+                        available.</p>
+                </div>
+                <div style="text-align: right;">
+                    <p style="font-size: 0.55rem; color: white; margin-bottom: 2px;">DIRECT CONNECT</p>
+                    <h2>9003032732</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 4: BACK COVER -->
+    <div class="a5-page back-cover">
+        <div class="back-cover-top-shape">
+            <img src="images/flyers.png" alt="Print Collateral">
+        </div>
+
+        <div class="back-content-area">
+            <div>
+                <h2 style="color: var(--navy); margin-bottom: 5px; font-size: 1.3rem;">Let's
+                    Create <span class="gradient-text">Together</span></h2>
+                <p style="color: var(--slate); font-size: 0.7rem;">Premium print solutions at your fingertips.</p>
+            </div>
+
+            <div class="qr-box">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://samsprintstudio.com/"
+                    alt="Website QR Code">
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91-9003032732</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>samsprintstudio@gmail.com</span>
+                </div>
+            </div>
+
+            <div class="social-link-wrap">
+                <a href="https://wa.me/919003032732" target="_blank" class="social-item" style="background: #25D366;">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>Message on WhatsApp</span>
+                </a>
+                <a href="https://www.instagram.com/samsprintstudio2026/" target="_blank" class="social-item"
+                    style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span>@samsprintstudio2026</span>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61586824322699" target="_blank" class="social-item"
+                    style="background: #1877F2;">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <span>Sam's Print Studio</span>
+                </a>
+            </div>
+
+            <div style="text-align: center;">
+                <img src="logo.png" alt="Sam's Print Studio" style="width: 150px; margin-bottom: 2px;">
+                <p style="font-size: 0.65rem; font-weight: 700; color: var(--navy); letter-spacing: 2px;">
+                    WWW.SAMSPRINTSTUDIO.COM</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
