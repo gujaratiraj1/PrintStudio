@@ -12,6 +12,22 @@
     <meta property="og:image" content="https://samsprintstudio.com/images/hero-printing-studio.png">
     <meta property="og:url" content="https://samsprintstudio.com">
     <meta property="og:type" content="LocalBusiness">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sam’s Print Studio | Best Printing Services in Bangalore">
+    <meta name="twitter:description" content="Top-rated professional printing services in Bangalore. Fast 3D printing, premium visiting cards, flyers, digital copying, and expert design support.">
+    <meta name="twitter:image" content="https://samsprintstudio.com/images/hero-printing-studio.png">
+    
+    <!-- Advanced Indexing & Geo Meta Tags -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="geo.region" content="IN-KA">
+    <meta name="geo.placename" content="Bengaluru">
+    
+    <link rel="canonical" href="https://samsprintstudio.com/">
+    <link rel="alternate" hreflang="en-IN" href="https://samsprintstudio.com/">
+    <link rel="alternate" hreflang="x-default" href="https://samsprintstudio.com/">
+
     <title>Sam’s Print Studio | Best Printing Services & 3D Printing in Bangalore</title>
 
     <!-- Google Fonts -->
@@ -25,13 +41,13 @@
 
     <link rel="stylesheet" href="styles.css">
 
-    <!-- Schema: LocalBusiness -->
+    <!-- Schema: LocalBusiness & FAQ & WebPage -->
     <script type="application/ld+json">
-    {
+    [{
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Sam's Print Studio",
-        "description": "Premium 3D and 2D printing solutions in Bangalore. Visiting cards, brochures, digital services, and affordable 3D printing.",
+        "description": "Top-rated professional printing services in Bangalore. Fast 3D printing, premium visiting cards, flyers, digital copying, and expert design support.",
         "url": "https://samsprintstudio.com",
         "telephone": "+91-9663990894",
         "email": "samsprintstudio@gmail.com",
@@ -43,7 +59,27 @@
         },
         "openingHours": "Mo-Sa 09:30-19:30",
         "priceRange": "₹"
-    }
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            { "@type": "Question", "name": "What are the best printing services in Bangalore for startups?", "acceptedAnswer": { "@type": "Answer", "text": "Sam's Print Studio is widely regarded as one of the best printing services in Bangalore for startups, offering everything from business card printing to fast 3D prototyping and corporate branding kits with same-day delivery options." } },
+            { "@type": "Question", "name": "How much does a 3D prototype cost in Bangalore?", "acceptedAnswer": { "@type": "Answer", "text": "3D printing costs in Bangalore typically range from ₹5 to ₹15 per gram for FDM printing. Sam's Print Studio offers competitive pricing starting at ₹250 for small, high-precision prototypes." } },
+            { "@type": "Question", "name": "Do you provide design support for commercial printing?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, Sam's Print Studio provides comprehensive design support including logo vectorization and print-ready file preparation for all commercial printing orders, ensuring flawless final results." } }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Sam’s Print Studio | Best Printing Services & 3D Printing in Bangalore",
+        "datePublished": "2024-01-01T08:00:00+08:00",
+        "dateModified": "2026-04-01T08:00:00+08:00",
+        "author": {
+            "@type": "Organization",
+            "name": "Sam's Print Studio"
+        }
+    }]
     </script>
 </head>
 
@@ -458,6 +494,36 @@
         </div>
     </section>
 
+    <!-- FAQ for GEO -->
+    <section class="section-padding faq-section" id="faq" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Frequently Asked Questions About Printing Services in Bangalore</h2>
+                <p>Quick answers to common questions for your convenience.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item reveal">
+                    <div class="faq-question" onclick="toggleFaq(this)"><span>What are the best printing services in Bangalore for startups?</span><i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">Sam's Print Studio is widely regarded as one of the best printing services in Bangalore for startups, offering everything from business card printing to fast 3D prototyping and corporate branding kits with same-day delivery options.</div>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question" onclick="toggleFaq(this)"><span>How much does a 3D prototype cost in Bangalore?</span><i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">3D printing costs in Bangalore typically range from ₹5 to ₹15 per gram for FDM printing. Sam's Print Studio offers competitive pricing starting at ₹250 for small, high-precision prototypes.</div>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question" onclick="toggleFaq(this)"><span>Do you provide design support for commercial printing?</span><i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">Yes, Sam's Print Studio provides comprehensive design support including logo vectorization and print-ready file preparation for all commercial printing orders, ensuring flawless final results.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact -->
     <section class="section-padding contact" id="contact">
         <div class="container">
@@ -608,6 +674,8 @@
         window.addEventListener("scroll", reveal);
         // Trigger once on load
         reveal();
+        
+        function toggleFaq(el) { const item = el.parentElement; const active = item.classList.contains('active'); document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active')); if (!active) item.classList.add('active'); }
     </script>
 </body>
 
