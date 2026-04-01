@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Read insights, guides, and tips on 3D prototyping, visiting cards, offset printing, and graphic design from Sam’s Print Studio in Bangalore.">
+    <title>Blog & Resources | Sam's Print Studio Bangalore</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .blog-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .blog-card p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+        
+        .read-more {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s ease;
+        }
+        
+        .read-more:hover {
+            color: #0284c7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <img src="logo.png" alt="Sam’s Print Studio">
+                </a>
+                <div class="nav-links" id="navLinks">
+                    <a href="index.html">Home</a>
+                    <div class="nav-dropdown">
+                        <a href="index.html#services">Services ▾</a>
+                        <div class="dropdown-menu">
+                            <a href="visiting-cards.html">Visiting Cards</a>
+                            <a href="commercial-printing.html">Commercial Printing</a>
+                            <a href="3d-printing.html">3D Printing</a>
+                            <a href="scanning-services.html">Scan & Copy</a>
+                            <a href="digital-services.html">Digital Services</a>
+                        </div>
+                    </div>
+                    <a href="pricing.html">Pricing</a>
+                    <a href="blog.html" class="active">Blog</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+                <div class="mobile-toggle" id="mobileMenuBtn">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Blog & Resources</h1>
+            <p>Expert insights into printing, prototyping, and growing your business.</p>
+        </div>
+    </div>
+
+    <!-- Blog Grid -->
+    <section class="section-padding" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="blog-grid">
+                <!-- Blog 1 -->
+                <div class="blog-card reveal active">
+                    <div style="font-size: 0.8rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; margin-bottom: 10px;">Prototyping & Technology</div>
+                    <h3>The Ultimate Guide to 3D Printing Services in Bangalore</h3>
+                    <p>Discover how 3D printing accelerates product development. From CAD design to physical reality in just 24 hours.</p>
+                    <a href="blog-3d-printing-bangalore.html" class="read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Placeholder 2 -->
+                <div class="blog-card reveal active">
+                    <div style="font-size: 0.8rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; margin-bottom: 10px;">Business Branding</div>
+                    <h3>Digital vs. Offset Printing: Which is Best for Your Startup?</h3>
+                    <p>Understanding the costs, quality differences, and speed of digital versus offset printing for your marketing materials.</p>
+                    <a href="#" class="read-more" style="color: #cbd5e1; cursor: not-allowed;">Coming Soon</a>
+                </div>
+
+                <!-- Placeholder 3 -->
+                <div class="blog-card reveal active">
+                    <div style="font-size: 0.8rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; margin-bottom: 10px;">Design Tips</div>
+                    <h3>5 Visiting Card Design Mistakes to Avoid in 2026</h3>
+                    <p>Learn why cluttered designs, wrong paper thickness, and poor typography are destroying your networking ROI.</p>
+                    <a href="#" class="read-more" style="color: #cbd5e1; cursor: not-allowed;">Coming Soon</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="logo.png" alt="Sam’s Print Studio" class="footer-logo">
+                    <p style="margin-top: 20px;">Your partner in print perfection.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="visiting-cards.html">Visiting Cards</a></li>
+                        <li><a href="commercial-printing.html">Commercial Printing</a></li>
+                        <li><a href="3d-printing.html">3D Printing</a></li>
+                        <li><a href="scanning-services.html">Scan & Copy</a></li>
+                        <li><a href="digital-services.html">Digital Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Follow Us</h3>
+                    <ul style="display: flex; gap: 15px;">
+                        <li><a href="https://www.instagram.com/samsprintstudio2026/" target="_blank"><i
+                                    class="fa-brands fa-instagram" style="font-size: 1.5rem;"></i></a></li>
+                        <li><a href="https://www.facebook.com/profile.php?id=61586824322699" target="_blank"><i
+                                    class="fa-brands fa-facebook" style="font-size: 1.5rem;"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Sam's Print Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Widget -->
+    <div class="floating-widget">
+        <a href="tel:+919663990894" class="floating-btn call">
+            <span class="tooltip">Call Us</span>
+            <i class="fa-solid fa-phone"></i>
+        </a>
+        <a href="https://wa.me/919663990894" target="_blank" class="floating-btn whatsapp">
+            <span class="tooltip">WhatsApp</span>
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+
+            mobileBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                const icon = mobileBtn.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                } else {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
